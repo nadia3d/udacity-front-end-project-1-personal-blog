@@ -1,11 +1,13 @@
 /* Custom properties */
+@import url('https://fonts.googleapis.com/css2?family=Changa+One&family=Roboto+Mono&display=swap');
 
 :root {
     --background-color-main: #e5d0ff;
     --background-color-secondary: #8668ac;
     --text-color-main: #000;
     --hover-color: var(--background-color-secondary);
-    --font-family: sans-serif;
+    --font-family-logo: 'Changa One', cursive;
+    --font-family:  'Roboto Mono', monospace;
     --font-size-xsmall: 1.2rem;
     --font-size-small: 1.6rem;
     --font-size-medium: 2.4rem;
@@ -16,6 +18,10 @@
     --margin-medium: 3rem;
     --item-min-height-small: 20rem;
     --item-min-height-medium: 30rem;
+
+    /* Util */
+
+    --check-border: 1px red solid;
 }
 
 
@@ -65,6 +71,82 @@ button {
 
 }
 
-i{
+i {
     font-size: var(--font-size-medium);
+}
+
+.container {
+    max-width: 160rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.place-items-center {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+/* Header */
+
+.header {
+    background-color: var(--background-color-secondary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 1.5rem;
+}
+
+.logo {
+    font-family: var(--font-family-logo);
+    font-size: var(--font-size-medium);
+    color: var(--background-color-main);
+
+}
+
+.navmenu {
+    position: absolute;
+    top: 7.5rem;
+    width: 100%;
+    padding: 1.5rem;
+    border: var(--check-border);
+    transition: opacity .25s ease-in;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+
+}
+
+.menu>.list {
+    flex-direction: row;
+}
+
+.list-link.selected {
+    color: var(--background-color-secondary);
+    font-weight: bold;
+}
+
+.btn {
+    cursor: pointer;
+}
+
+.list-link:hover {
+    color: var(--background-color-secondary);
+}
+
+.btn:hover {
+    color: var(--background-color-main);
 }
