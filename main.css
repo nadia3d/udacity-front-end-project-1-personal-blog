@@ -21,6 +21,8 @@
     --margin-medium: 3rem;
     --item-min-height-small: 20rem;
     --item-min-height-medium: 30rem;
+    --item-min-width: 30rem;
+    --main-content-container-width: 100rem;
 
     /* Util */
 
@@ -92,14 +94,17 @@ i {
 
 } */
 
-.d-grid {
+.grid {
     display: grid;
+    /* grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); */
+    grid-template-columns: repeat(auto-fill, minmax(min(var(--item-min-width), 100%), 1fr));
+    gap: var(--gap);
 
 }
 
-.section {
+/* .section {
     padding-block: 5rem;
-}
+} */
 
 
 /* Header */
@@ -114,11 +119,15 @@ i {
 }
 
 .navbar {
+    /* box-sizing: border-box; */
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-block: 1.5rem;
-    /* padding: 1.5rem; */
+    
+    max-width: calc(var(--main-content-container-width) - 2rem);
+
+       /* padding: 1.5rem; */
     border: var(--check-border);
     /* writing-mode: horizontal-tb; */
 
@@ -147,12 +156,13 @@ i {
     display: flex;
     align-items: center;
     gap: var(--gap);
-
-}
-
-.menu>.list {
     flex-direction: row;
+
 }
+
+/* .menu>.list {
+    flex-direction: row;
+} */
 
 .list-link.selected {
     color: var(--background-color-secondary);
@@ -161,6 +171,7 @@ i {
 
 .btn {
     cursor: pointer;
+
 }
 
 .list-link:hover {
@@ -173,9 +184,10 @@ i {
 
 /* Arrticle-Cards */
 
-.articles-container {
+.cards-container {
     padding-block: 2rem;
     border: var(--check-border);
+    max-width: var(--main-content-container-width);
 
 }
 
@@ -183,8 +195,11 @@ i {
     margin-top: 5rem;
 }
 
-.article-data-container,
-.content {
+
+
+.card-footer,
+.card {
+
     gap: var(--gap);
 
 }
@@ -219,7 +234,7 @@ i {
 
 }
 
-.article-data-container {
+.card-footer {
     position: absolute;
     bottom: 0;
     left: 0;
@@ -231,7 +246,7 @@ i {
     border: var(--check-border);
 }
 
-.article:hover .article-data-container {
+.article:hover .card-footer {
     background-color: transparent;
     color: var(--hover-color);
 }
@@ -249,7 +264,10 @@ i {
     color: var(--hover-color);
 }
 
-
+.article:hover .article-category {
+    background-color: transparent;
+    border: 1px solid;
+}
 
 
 .article-data {
@@ -271,10 +289,20 @@ i {
 
 .title {
     color: var(--text-color-light);
+    font-family: var(--font-family-logo);
 }
 
 .article-title {
+
+
     font-size: var(--font-size-medium);
 }
+
+/* .read-button{
+    position: relative;
+    margin-bottom: 1rem;
+    margin-top: 2rem;
+
+} */
 
 
