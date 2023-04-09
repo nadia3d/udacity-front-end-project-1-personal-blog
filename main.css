@@ -1,16 +1,16 @@
 /* Custom properties */
-@import url('https://fonts.googleapis.com/css2?family=Changa+One&family=Roboto+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@300&family=IBM+Plex+Mono:wght@300&family=Space+Grotesk:wght@300&family=Unbounded&display=swap');
 
 :root {
     --background-color-main: #e5d0ff;
     --background-color-secondary: #8c61e7;
     --background-color-main-tr: #e5d0ff4e;
-    --text-color-main: #000;
-    --text-color-light:var(--background-color-main);
+    --text-color-main: #3d1b88;
+    --text-color-light: var(--background-color-main);
     --hover-color: var(--background-color-secondary);
     --hover-color-light: var(--background-color-main);
-    --font-family-logo: 'Changa One', cursive;
-    --font-family: 'Roboto Mono', monospace;
+    --font-family-logo: 'Unbounded', cursive;
+    --font-family: 'Chivo Mono', monospace;
     --font-size-xsmall: 1.2rem;
     --font-size-small: 1.6rem;
     --font-size-medium: 2.4rem;
@@ -19,6 +19,7 @@
     --gap: 2rem;
     --margin-small: 2rem;
     --margin-medium: 3rem;
+    --padding-block-nav: 2rem;
     --item-min-height-small: 20rem;
     --item-min-height-medium: 30rem;
     --item-min-width: 30rem;
@@ -58,6 +59,8 @@ a {
     color: inherit;
 }
 
+
+
 img {
     max-width: 100%;
     display: block;
@@ -78,7 +81,8 @@ button {
 }
 
 i {
-    font-size: var(--font-size-medium);
+    font: inherit;
+    /* font-size: var(--font-size-small); */
 }
 
 .container {
@@ -102,9 +106,14 @@ i {
 
 }
 
-/* .section {
-    padding-block: 5rem;
-} */
+.section {
+    padding-block: 2rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    text-align: center;
+}
 
 
 /* Header */
@@ -119,26 +128,18 @@ i {
 }
 
 .navbar {
-    /* box-sizing: border-box; */
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-block: 1.5rem;
-    
+    padding-block: var(--padding-block-nav);
     max-width: calc(var(--main-content-container-width) - 2rem);
-
-       /* padding: 1.5rem; */
     border: var(--check-border);
-    /* writing-mode: horizontal-tb; */
-
 }
 
 .logo {
     font-family: var(--font-family-logo);
     font-size: var(--font-size-medium);
     color: var(--text-color-light);
-    /* padding: 1.5rem; */
-
     border: var(--check-border);
 
 }
@@ -160,13 +161,10 @@ i {
 
 }
 
-/* .menu>.list {
-    flex-direction: row;
-} */
 
 .list-link.selected {
-    color: var(--background-color-secondary);
-    font-weight: bold;
+    color: var(--background-color-main);
+    text-decoration: underline;
 }
 
 .btn {
@@ -176,23 +174,26 @@ i {
 
 .list-link:hover {
     color: var(--background-color-main);
+    text-decoration: underline;
 }
 
 .btn:hover {
     color: var(--background-color-main);
 }
 
+
 /* Arrticle-Cards */
 
 .cards-container {
     padding-block: 2rem;
-    border: var(--check-border);
+
     max-width: var(--main-content-container-width);
+
 
 }
 
 .section-header-offset {
-    margin-top: 5rem;
+    margin-top: calc(var(--padding-block-nav) * 2 + var(--margin-medium));
 }
 
 
@@ -204,10 +205,11 @@ i {
 
 }
 
-.article {
+.card {
     position: relative;
     min-height: var(--item-min-height-medium);
-    border: var(--check-border);
+    box-shadow: 0 0 4rem .1rem rgba(0, 0, 0, 0.238);
+
 }
 
 .article-image {
@@ -215,9 +217,6 @@ i {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform .25s;
-    border: var(--check-border);
-
 }
 
 .article-category {
@@ -227,10 +226,10 @@ i {
     padding: 1rem;
     font-size: 1rem;
     background-color: var(--background-color-main);
-    color: var(--background-color-secondary);
+    color: var(--text-color-main);
     text-transform: uppercase;
     z-index: 10;
-    border: var(--check-border);
+
 
 }
 
@@ -246,32 +245,37 @@ i {
     border: var(--check-border);
 }
 
-.article:hover .card-footer {
+.card:hover .card-footer {
     background-color: transparent;
     color: var(--hover-color);
 }
 
-.article:hover .article-data-spacer {
+.card:hover .article-data-spacer {
     background-color: var(--hover-color);
 }
 
-.article:hover .article-title {
+.card:hover .article-title {
 
     color: var(--hover-color);
 }
 
-.article:hover .article-data {
+.card:hover .article-data {
     color: var(--hover-color);
 }
 
-.article:hover .article-category {
+.card:hover .article-category {
     background-color: transparent;
     border: 1px solid;
+    color: var(--background-color-secondary);
+}
+
+.card:hover .article-title {
+    text-decoration: underline;
 }
 
 
 .article-data {
-    color: var(--background-color-secondary);
+    color: var(--text-color-main);
     display: flex;
     align-items: center;
     gap: var(--gap);
@@ -282,27 +286,68 @@ i {
 .article-data-spacer {
     width: .3rem;
     height: .3rem;
-    background-color: var(--background-color-secondary);
+    background-color: var(--text-color-main);
     border-radius: 50%;
 
 }
 
 .title {
-    color: var(--text-color-light);
+    /* color: var(--text-color-main); */
     font-family: var(--font-family-logo);
 }
 
 .article-title {
-
-
+    color: var(--text-color-light);
     font-size: var(--font-size-medium);
+
 }
 
-/* .read-button{
-    position: relative;
-    margin-bottom: 1rem;
-    margin-top: 2rem;
-
-} */
+/* Newsletter */
 
 
+.form-container-inner {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    text-align: center;
+
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+}
+
+.form-input,
+.form-btn {
+    display: inline-block;
+    border: 2px solid var(--background-color-secondary);
+    padding: 1rem;
+}
+
+.form-input {
+    border-right: none;
+    width: 100%;
+}
+
+.form-btn {
+    margin-left: -.5rem;
+    border-left: none;
+    background-color: var(--background-color-secondary);
+    color: var(--text-color-light);
+}
+
+.newsletter {
+    padding-block: 6rem;
+    color: var(--background-color-secondary);
+
+}
+
+.newsletter-title {
+    font-size: var(--font-size-small);
+}
+
+.newsletter-description {
+    margin-bottom: 3rem;
+}
