@@ -1,0 +1,63 @@
+/* Media queries*/
+
+@media screen and (min-width: 700px) {
+
+
+    .author {
+        grid-template-columns: 20rem 1fr;
+        height: var(--item-min-height-small);
+    }
+
+    .author img {
+        height: var(--item-min-height-small);
+    }
+
+
+
+
+}
+
+@media screen and (min-width: 768px) {
+
+
+    .blog-post-data img {
+        height: var(--item-min-height-medium);
+        width: 90rem;
+
+
+    }
+
+    .footer-data {
+
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+
+
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+    .blog-post-data img {
+        height: 40rem;
+
+    }
+
+    .form-container-inner {
+        max-width: var(--main-content-container-width);
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        width: calc(var(--main-content-container-width) - 3rem);
+    }
+
+    .form-input {
+        width: 40rem;
+    }
+
+
+
+}

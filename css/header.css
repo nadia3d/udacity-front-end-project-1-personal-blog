@@ -1,0 +1,36 @@
+/* Header */
+
+.header {
+    background-color: var(--background-color-secondary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    box-shadow: var(--box-shadow-card);
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: var(--padding-block-nav);
+    width: 100%;
+    max-width: calc(var(--main-content-container-width) - 2rem);
+    border: var(--check-border);
+}
+
+.logo {
+    font-family: var(--font-family-logo);
+    font-size: var(--font-size-medium);
+    color: var(--text-color-light);
+    border: var(--check-border);
+
+}
+
+.navmenu {
+    width: 100%;
+    border: var(--check-border);
+}
+
+
